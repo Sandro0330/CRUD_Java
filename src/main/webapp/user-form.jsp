@@ -14,7 +14,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: tomato">
 		<div>
-			<a href="https://www.sambaporno.com" class="navbar-brand"> Gerenciamento de usuário App </a>
+			<a href="https://github.com/Sandro0330" class="navbar-brand"> Gerenciamento de usuário App </a>
 		</div>
 		<ul class="navbar-nav">
 			<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Usuário</a></li>
