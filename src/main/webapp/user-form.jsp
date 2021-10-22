@@ -51,7 +51,7 @@
 						value="<c:out value='${user.pais}' />" class="form-control"
 						name="pais">
 				</fieldset>
-				<button type="submit" class="btn btn-success">Salvar</button>
+				<button type="submit" class="btn btn-primary">Salvar</button>
 			</div>
 		</div>
 	</div>

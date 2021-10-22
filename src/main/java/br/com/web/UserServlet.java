@@ -58,7 +58,7 @@ public class UserServlet extends HttpServlet {
 				case "/insert":
 					insertUser(request, response);
 					break;
-				case "delete":
+				case "/delete":
 					deleteUser(request, response);
 					break;
 				case "/edit":

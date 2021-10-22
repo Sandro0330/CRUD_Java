@@ -29,7 +29,7 @@
 			<h3 class="container">Lista de usuários</h3>
 			<hr>
 			<div class="container text-left">
-				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">Adicionar novo usuário</a>
+				<a href="<%=request.getContextPath()%>/new" class="btn btn-primary">Adicionar novo usuário</a>
 			</div>
 			<br>
 			<table class="table table-bordered">
@@ -52,7 +52,7 @@
 							<td>
 								<a href="edit?id=<c:out value='${user.id}' />">Editar</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="delete=?id<c:out value='${user.id}' />">Deletar</a>
+								<a href="delete?id=<c:out value='${user.id}' />">Deletar</a>
 							</td>					
 						</tr>
 					</c:forEach>	
