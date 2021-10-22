@@ -22,15 +22,15 @@ import br.com.model.User;
 
 public class UserDao {
 
-	private String jdbcURL = "jdbc:mysql://localhost:3306/jsp_crud?useSSL=false";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/usuario_jsp?serverTimezone=UTC";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "12345678";
 	
-	private static final String INSERT_USERS_SQL = "INSERT INTO users" + " (nome, email, pais) VALUES (?, ?, ?);";
-	private static final String SELECT_ALL_USERS = "select * from users";
-	private static final String SELECT_USER_BY_ID = "select id, name, email, pais from users where id = ?";
-	private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
-	private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, pais = ? where id = ?;";
+	private static final String INSERT_USERS_SQL = "INSERT INTO usuarios" + " (nome, email, pais) VALUES (?, ?, ?);";
+	private static final String SELECT_ALL_USERS = "select * from usuarios";
+	private static final String SELECT_USER_BY_ID = "select id, nome, email, pais from usuarios where id = ?";
+	private static final String DELETE_USERS_SQL = "delete from usuarios where id = ?;";
+	private static final String UPDATE_USERS_SQL = "update usuarios set nome = ?, email = ?, pais = ? where id = ?;";
 	
 	public UserDao() {
 		
@@ -39,8 +39,8 @@ public class UserDao {
 	protected Connection getConnection() {
 		Connection connection = null;
 		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
+		try { 
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword); 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -50,6 +50,7 @@ public class UserDao {
 		return connection;
 	}
 	
+	//Método de inserção
 	public void insertUser(User user) throws SQLException {
 		System.out.println(INSERT_USERS_SQL);
 		
@@ -93,7 +94,7 @@ public class UserDao {
 	public List<User> selectAllUsers() {
 		// usando try-with-resources para evitar o fechamento de recursos (código padrão) 
 		
-		List<User> users = new ArrayList<User>();
+		List<User> user = new ArrayList<User>();
 		
 		// Etapa 1: Estabelecendo uma conexão 
 		try(Connection connection = getConnection();
@@ -109,12 +110,12 @@ public class UserDao {
 				String nome = resultSet.getString("nome");
 				String email = resultSet.getString("email");
 				String pais = resultSet.getString("pais");
-				users.add(new User(id, nome, email, pais));
+				user.add(new User(id, nome, email, pais));
 			}
 		} catch (SQLException e) {
 			printSQLException(e);
 		}	
-		return users;
+		return user;
 	}
 	
 	public boolean deleteUser(int id) throws SQLException {
@@ -127,6 +128,7 @@ public class UserDao {
 		return deletar;
 	}
 
+	//Método para atualizar Usuário
 	public boolean updateUser(User user) throws SQLException {
 		boolean atualizacao;
 		try(Connection connection = getConnection(); 

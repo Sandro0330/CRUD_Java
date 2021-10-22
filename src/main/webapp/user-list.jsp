@@ -15,7 +15,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: tomato">
 			<div>
-				<a href="https://github.com/Sandro0330" class="navbar-brand"></a>
+				<a href="https://github.com/Sandro0330" class="navbar-brand">App de gerenciamento de usuário</a>
 			</div>			
 			
 			<ul class="navbar-nav">
@@ -24,8 +24,8 @@
 		</nav>
 	</header>
 	<br>
-	<div class="container">
-		<div>
+	<div class="row">
+		<div class="container">
 			<h3 class="container">Lista de usuários</h3>
 			<hr>
 			<div class="container text-left">
@@ -46,7 +46,7 @@
 					<c:forEach var="user" items="${listUser}">
 						<tr>
 							<td><c:out value="${user.id}"></c:out></td>
-							<td><c:out value="${user.name}"></c:out></td>
+							<td><c:out value="${user.nome}"></c:out></td>
 							<td><c:out value="${user.email}"></c:out></td>
 							<td><c:out value="${user.pais}"></c:out></td>
 							<td>

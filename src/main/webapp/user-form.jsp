@@ -13,20 +13,20 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: tomato">
-		<div>
-			<a href="https://github.com/Sandro0330" class="navbar-brand"> Gerenciamento de usuário App </a>
-		</div>
-		<ul class="navbar-nav">
-			<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Usuário</a></li>
-		</ul>	
+			<div>
+				<a href="https://github.com/Sandro0330" class="navbar-brand"> App de gerenciamento de usuário</a>
+			</div>
+				<ul class="navbar-nav">
+				<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Usuário</a></li>
+			</ul>	
 		</nav>
 	</header>
 	<br>
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<c:if test="${user != null}"><form action="update" method="post"></form></c:if>
-				<c:if test="${user == null}"><form action="insert" method="post"></form></c:if>
+				<c:if test="${user != null}"><form action="update" method="post"></c:if>
+				<c:if test="${user == null}"><form action="insert" method="post"></c:if>
 				<caption>
 					<h2>
 						<c:if test="${user != null}">Editar usuário</c:if>
@@ -38,8 +38,8 @@
 				</c:if>
 				<fieldset class="form-group">
 					<label>Nome do usuário</label> <input type="text"
-						value="<c:out value='${user.name}' />" class="form-control"
-						name="name" required="required">
+						value="<c:out value='${user.nome}' />" class="form-control"
+						name="nome" required="required">
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Email do usuário</label> <input type="text"
@@ -48,8 +48,8 @@
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Pais do usuário</label> <input type="text"
-						value="<c:out value='${user.country}' />" class="form-control"
-						name="country">
+						value="<c:out value='${user.pais}' />" class="form-control"
+						name="pais">
 				</fieldset>
 				<button type="submit" class="btn btn-success">Salvar</button>
 			</div>
